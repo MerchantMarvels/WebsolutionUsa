@@ -1,0 +1,206 @@
+/* ====== Testimonials Slider ====== */
+.testimonial-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .15);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background .25s ease;
+}
+
+.arrow:hover {
+    background: rgba(255, 255, 255, .16);
+}
+
+.arrow.left {
+    margin-right: 12px;
+}
+
+.arrow.right {
+    margin-left: 12px;
+}
+
+.dots {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .4);
+    cursor: pointer;
+    transition: background .3s ease;
+}
+
+.dot.active {
+    background: #ff874e;
+}
+
+.ts-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(60px, 10vw, 100px) 20px;
+    color: #fff
+}
+
+.ts-title {
+    font-size: clamp(1.8rem, 3vw + .5rem, 2.6rem);
+    text-align: center;
+    margin: 0 0 28px
+}
+
+.ts-slider {
+    position: relative;
+    overflow: hidden
+}
+
+.ts-track {
+    display: flex;
+    transition: transform .55s cubic-bezier(.22, .61, .36, 1)
+}
+
+.ts-page {
+    flex: 0 0 100%
+}
+
+.ts-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+    align-items: stretch;
+   padding: 20px 0px;
+}
+
+.ts-card {
+    padding: 24px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .10);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.ts-stars {
+    color: #ff874e;
+    margin-bottom: 12px;
+    letter-spacing: .08em
+}
+
+.ts-quote {
+    margin: 0 0 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, .92);
+    font-size: 1rem
+}
+
+.ts-author {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.ts-author img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover
+}
+
+.ts-author h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600
+}
+
+.ts-author span {
+    display: block;
+    font-size: .88rem;
+    opacity: .85
+}
+
+.ts-arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .15);
+    color: #fff;
+    font-size: 1.6rem;
+    z-index: 2;
+    transition: background .2s ease;
+    display: none;
+}
+
+.ts-arrow:hover {
+    background: rgba(255, 255, 255, .16)
+}
+
+.ts-arrow--left {
+    left: 6px
+}
+
+.ts-arrow--right {
+    right: 6px
+}
+
+.ts-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px
+}
+
+.ts-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .4);
+    cursor: pointer;
+    transition: background .25s
+}
+
+.ts-dot.is-active {
+    background: #ff874e
+}
+
+@media (min-width:900px) {
+    .ts-card {
+        padding: 26px
+    }
+
+    .ts-arrow--left {
+        left: -6px
+    }
+
+    .ts-arrow--right {
+        right: -6px
+    }
+}

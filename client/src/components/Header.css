@@ -1,0 +1,263 @@
+/* --- Layout & positioning --- */
+.site-header {
+    position: absolute;
+    /* sits over the banner/hero */
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 16px;
+    z-index: 10;
+    /* above the banner; lower this if your banner must cover it */
+    pointer-events: none;
+    /* keeps header visually over banner but only interactive on inner wrapper */
+}
+
+.site-header .nav-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    pointer-events: auto;
+    /* re-enable interactions */
+}
+
+/* --- Brand --- */
+.brand {
+    display: inline-grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    line-height: 1;
+}
+
+.brand img {
+    /* width: 44px; */
+    height: 44px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .25));
+}
+
+.brand span {
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+.brand small {
+    font-size: 10px;
+    opacity: .85;
+}
+
+/* --- Center pill (glassmorphism) --- */
+.nav-pill {
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.nav-pill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .25) inset, 0 2px 12px rgba(0, 0, 0, .18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: none;
+}
+
+.nav-list {
+    display: flex;
+    gap: 22px;
+    padding: 10px 22px;
+    list-style: none;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-list li {
+    display: flex;
+}
+
+.nav-list a {
+    color: #f5f5f7;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: background .2s ease, opacity .2s ease;
+    opacity: .95;
+    font-size: 16px;
+}
+
+.nav-list a:hover {
+    background: rgba(255, 255, 255, .1);
+    opacity: 1;
+}
+
+.chev {
+    margin-left: 6px;
+    opacity: .75;
+}
+
+/* --- Right actions --- */
+.actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 16px;
+}
+
+.link {
+    color: #fff;
+    text-decoration: none;
+    opacity: .9;
+}
+
+.link:hover {
+    opacity: 1;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .2);
+    color: #fff;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, .14);
+}
+
+/* --- Mobile --- */
+.hamburger {
+    display: none;
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    margin: 6px 9px;
+    background: #fff;
+}
+
+.close-btn {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .site-header .nav-wrap {
+        grid-template-columns: 1fr auto;
+    }
+
+    .actions {
+        display: none;
+    }
+
+    .nav-pill {
+        justify-self: end;
+        min-width: 40px;
+        width: 40px;
+    }
+
+    .nav-pill::before {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* Backdrop overlay */
+    .backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        z-index: 998;
+    }
+
+    /* Drawer menu */
+    .nav-list {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 75vw;
+        padding: 80px 20px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        /* align text left */
+        gap: 10px;
+        border-radius: 0;
+        z-index: 999;
+
+        background: rgba(255, 255, 255, .06);
+        border-left: 1px solid rgba(255, 255, 255, .15);
+        box-shadow: -4px 0 30px rgba(0, 0, 0, .35);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
+        transform: translateX(100%);
+        transition: transform .28s ease-out;
+    }
+
+    .site-header.is-open .nav-list {
+        transform: translateX(0);
+    }
+
+    .nav-list a {
+        width: 100%;
+        padding: 14px 12px;
+        font-size: 18px;
+        border-radius: 8px;
+        text-align: left;
+        /* force left align */
+    }
+
+    /* Close button inside drawer */
+    .close-btn {
+        display: block;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: rgba(255, 255, 255, .1);
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        line-height: 1;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background: rgba(255, 255, 255, .2);
+    }
+}
