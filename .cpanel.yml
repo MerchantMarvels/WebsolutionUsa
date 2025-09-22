@@ -1,24 +1,34 @@
 ---
 deployment:
   tasks:
-    # Adjust this if your server has a different Node version (ea-nodejs18, ea-nodejs20, etc)
-    - export NODEBIN=/opt/cpanel/ea-nodejs20/bin
-    - export REPO=/home/websolutionusa/repos/websolutionusa
-    - export APP=/home/websolutionusa/nodeapp
-    - export WEB=/home/websolutionusa/public_html
+    # Adjust these paths for your account
+    - export HOME=/home/websolutionusa
+    - export REPO=$HOME/repos/WebsolutionUsa
+    - export FRONT_DST=$HOME/public_html
+    - export APP_ROOT=$HOME/apps/api
 
-    # 1) Build the React client on the server
-    - /bin/bash -lc 'cd $REPO/client && $NODEBIN/npm ci && $NODEBIN/npm run build'
+    # Use the nodevenv that cPanel shows on your Node app card
+    # Example path (EDIT to your actual): $HOME/nodevenv/api/20/bin
+    - export NODEBIN=$HOME/nodevenv/api/20/bin
+    - export NPM="$NODEBIN/npm"
+    - export NPX="$NODEBIN/npx"
 
-    # 2) Deploy React build to public_html (overwrite to keep it clean)
-    - /bin/rsync -a --delete $REPO/client/build/ $WEB/
+    # 1) Install & build CLIENT (React)
+    - cd $REPO/client && $NPM ci
+    - cd $REPO/client && $NPM run build
 
-    # 3) Sync server code to Passenger app dir (exclude node_modules)
-    - /bin/rsync -a --delete --exclude=node_modules $REPO/server/ $APP/
+    # 2) Deploy CLIENT build to public_html (add/update/delete via rsync)
+    - /bin/rsync -a --delete $REPO/client/build/ $FRONT_DST/
 
-    # 4) Install server deps (production)
-    - /bin/bash -lc 'cd $APP && $NODEBIN/npm ci --omit=dev'
+    # 3) Install SERVER deps (production)
+    - cd $REPO/server && $NPM ci --omit=dev
 
-    # 5) Restart Passenger Node app (graceful)
-    - /bin/mkdir -p $APP/tmp
-    - /bin/touch $APP/tmp/restart.txt
+    # 4) Sync SERVER code (excluding node_modules because installed above)
+    - /bin/rsync -a --delete \
+        --exclude node_modules \
+        --exclude .env \
+        $REPO/server/ $APP_ROOT/
+
+    # 5) Restart Passenger Node app
+    - /bin/mkdir -p $APP_ROOT/tmp
+    - /usr/bin/touch $APP_ROOT/tmp/restart.txt
