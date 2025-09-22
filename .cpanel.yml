@@ -1,0 +1,24 @@
+---
+deployment:
+  tasks:
+    # Adjust this if your server has a different Node version (ea-nodejs18, ea-nodejs20, etc)
+    - export NODEBIN=/opt/cpanel/ea-nodejs20/bin
+    - export REPO=/home/websolutionusa/repos/websolutionusa
+    - export APP=/home/websolutionusa/nodeapp
+    - export WEB=/home/websolutionusa/public_html
+
+    # 1) Build the React client on the server
+    - /bin/bash -lc 'cd $REPO/client && $NODEBIN/npm ci && $NODEBIN/npm run build'
+
+    # 2) Deploy React build to public_html (overwrite to keep it clean)
+    - /bin/rsync -a --delete $REPO/client/build/ $WEB/
+
+    # 3) Sync server code to Passenger app dir (exclude node_modules)
+    - /bin/rsync -a --delete --exclude=node_modules $REPO/server/ $APP/
+
+    # 4) Install server deps (production)
+    - /bin/bash -lc 'cd $APP && $NODEBIN/npm ci --omit=dev'
+
+    # 5) Restart Passenger Node app (graceful)
+    - /bin/mkdir -p $APP/tmp
+    - /bin/touch $APP/tmp/restart.txt
