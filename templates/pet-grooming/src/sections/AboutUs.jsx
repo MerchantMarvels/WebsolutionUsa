@@ -45,7 +45,7 @@ export default function AboutUs() {
           Bunch of loving people<br />with passion to pets
         </h2>
         <p className="pg-about__lead">
-          Nam commodo suscipit quam. Nulla sit amet est. Aenean viverra rhoncus pede.
+          We are more than a team—we’re a family of pet lovers who believe every animal deserves kindness, comfort, and care. Our passion for pets drives everything we do, from the smallest daily routines to the most special moments
         </p>
         <div className="pg-about__cta">
           <Link className="pg-btn" to="/about">About us</Link>

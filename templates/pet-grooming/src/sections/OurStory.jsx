@@ -49,8 +49,7 @@ export default function OurStory() {
           </h2>
 
           <p className="pg-story__lead">
-            Nam commodo suscipit quam. Nulla sit amet est. Aenean viverra
-            rhoncus pede.
+           Since 2006, we’ve been dedicated to providing loving, reliable, and compassionate care for pets across California. What started as a small passion project quickly grew into a trusted service for families who want only the best for their furry, feathered, or scaly friends.
           </p>
 
           <ul className="pg-story__bullets">
