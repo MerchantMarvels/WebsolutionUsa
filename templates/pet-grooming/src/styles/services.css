@@ -1,0 +1,166 @@
+.pg-services {
+    position: relative;
+    background: var(--color--light);
+    padding: clamp(36px, 6vw, 80px) 20px;
+    overflow: hidden;
+}
+
+/* soft decorations like your screenshot */
+.pg-services::before {
+    content: "";
+    position: absolute;
+    left: -160px;
+    bottom: -160px;
+    width: 420px;
+    height: 420px;
+    background: var(--color--blue);
+    opacity: .25;
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.pg-services::after {
+    content: "";
+    position: absolute;
+    right: 40px;
+    top: 42px;
+    width: 92px;
+    height: 44px;
+    border: 8px solid transparent;
+    border-top-color: var(--color--yellow);
+    border-left-color: var(--color--yellow);
+    border-radius: 160;
+
+}
+
+section#services {
+    padding: 70px 0px;
+}
+
+/* services.css */
+.pg-services__head {
+    text-align: center;
+    margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.pg-services__head .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    color: var(--color--dark-50);
+    margin-bottom: 8px;
+}
+
+.pg-services__head .title {
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 700;
+    color: var(--color--dark);
+}
+
+/* grid layout */
+.pg-services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-width: var(--maxw);
+    margin: 0 auto;
+}
+
+/* card styles */
+.pg-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+    margin: 0px auto;
+}
+
+.pg-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+section#services .pg-card svg {
+    height: 70px;
+    width: 70px;
+}
+
+/* icon tints */
+.pg-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tint-blue {
+    background: var(--color--blue-10);
+    color: var(--color--blue);
+}
+
+.tint-yellow {
+    background: var(--color--yellow-10);
+    color: var(--color--yellow);
+}
+
+.tint-red {
+    background: var(--color--red-10);
+    color: var(--color--red);
+}
+
+.pg-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--color--dark);
+}
+
+.pg-card__desc {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color--dark-70);
+    margin-bottom: 16px;
+}
+
+.pg-card__more {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color--dark);
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.pg-card__more:hover {
+    color: var(--color--primary);
+}
+
+/* CTA button at bottom */
+.pg-services__cta {
+    text-align: center;
+    margin-top: clamp(36px, 6vw, 64px);
+}
+
+.pg-btn {
+    background: var(--color--yellow);
+    color: #000;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background .2s ease;
+}
+
+.pg-btn:hover {
+    background: var(--color--yellow-dark);
+}

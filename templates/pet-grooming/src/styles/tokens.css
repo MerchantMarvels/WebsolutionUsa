@@ -1,0 +1,27 @@
+/* src/styles/tokens.css */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap');
+
+:root{
+  --color--light: #fffbf1;
+  --font--body: "Satoshi", sans-serif;
+  --color--dark: #3f2e1f;
+  --type--body-regular: 18px;
+  --font--headings: "Fredoka", sans-serif;
+  --type--h1: 74px;
+  --type--h2: 52px;
+  --type--h3: 32px;
+  --color--yellow: #fdcb6e;
+  --color--white: #ffffff;
+  --color--shadow: #3f2e1f0a;
+  --type--body-big: 22px;
+  --color--light-two: #fff9e5;
+  --color--blue: #a6c1e7;
+  --color--red: #ff6f61;
+  --type--top-text: 20px;
+  --radius-outer: 14px;
+  --radius-inner: 10px;
+  --gap: 22px;
+  --maxw: 1200px;
+}
+
+html, body { background: var(--color--light); }
