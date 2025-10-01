@@ -38,7 +38,7 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <section id="about" className="pg-about" aria-labelledby="about-title">
+    <section id="grooming-about" className="pg-about" aria-labelledby="about-title">
       <div className="pg-about__wrap">
         <p className="pg-about__eyebrow">about us</p>
         <h2 id="about-title" className="pg-about__title">

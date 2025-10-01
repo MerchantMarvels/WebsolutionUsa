@@ -48,7 +48,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="pg-services" aria-labelledby="services-title">
+    <section id="grooming-services" className="pg-services" aria-labelledby="services-title">
       <div className="pg-services__head">
         <p className="eyebrow">services</p>
         <h2 id="services-title" className="title">We can help your buddies</h2>
@@ -62,13 +62,13 @@ export default function Services() {
             </div>
             <h3 className="pg-card__title">{s.title}</h3>
             <p className="pg-card__desc">{s.desc}</p>
-            <Link to="/services" className="pg-card__more">read more</Link>
+            <Link to="/" className="pg-card__more">read more</Link>
           </li>
         ))}
       </ul>
 
       <div className="pg-services__cta">
-        <Link to="/services" className="pg-btn">see all services</Link>
+        <Link to="/" className="pg-btn">see all services</Link>
       </div>
     </section>
   );

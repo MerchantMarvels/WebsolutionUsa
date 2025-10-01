@@ -9,7 +9,7 @@ const PLANS = [
     blurb:
       "Pets needing regular maintenance with no major grooming requirements.",
     features: ["relaxing bath", "brushing", "ear cleaning", "nail trimming"],
-    cta: { label: "Get started", to: "/booking" }
+    cta: { label: "Get started", to: "/" }
   },
   {
     title: "Standard grooming",
@@ -18,7 +18,7 @@ const PLANS = [
     blurb:
       "Pets that need a full grooming session including a fresh haircut.",
     features: ["same as basic+", "haircut", "teeth brushing", "basic medical check"],
-    cta: { label: "Get started", to: "/booking" },
+    cta: { label: "Get started", to: "/" },
     featured: true
   },
   {
@@ -28,14 +28,14 @@ const PLANS = [
     blurb:
       "Pets requiring extra attention to their coat, teeth, and skin care.",
     features: ["same as standard +", "de-shedding", "coat whitening", "extra medical check"],
-    cta: { label: "Get started", to: "/booking" }
+    cta: { label: "Get started", to: "/" }
   }
 ];
 
 export default function Pricing() {
   return (
-    <section className="pg-pricing" aria-labelledby="pricing-title">
-      <div id="price-section"  className="pg-pricing__head">
+    <section id="grooming-price" className="pg-pricing" aria-labelledby="pricing-title">
+      <div   className="pg-pricing__head">
         <p className="eyebrow">Pricing</p>
         <h2 id="pricing-title" className="title">We can help your buddies</h2>
       </div>

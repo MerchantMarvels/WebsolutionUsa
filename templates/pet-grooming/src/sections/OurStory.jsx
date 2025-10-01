@@ -37,7 +37,7 @@ function IconHeart() {
 
 export default function OurStory() {
   return (
-    <section id="our-story" className="pg-story" aria-labelledby="story-title">
+    <section id="grooming-our-story" className="pg-story" aria-labelledby="story-title">
       <div className="pg-story__wrap">
 
         {/* LEFT — copy */}
@@ -59,7 +59,7 @@ export default function OurStory() {
             <li><span className="ic"><IconHeart/></span> Made by professionals</li>
           </ul>
 
-          <Link to="/about" className="pg-story__btn">about us</Link>
+          <Link to="/" className="pg-story__btn">about us</Link>
         </div>
 
         {/* RIGHT — media */}

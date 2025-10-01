@@ -7,12 +7,14 @@ import "./styles/tokens.css";
 // use Vite's BASE_URL so it works in dev and build
 const basename = import.meta.env.BASE_URL.replace(/\/$/, ""); // strip trailing slash
 
+
 export default function App() {
   return (
     <Router basename={basename}>
       <Header />
       <Routes>
-        <Route path="/pet-grooming" element={<Home />} />
+        <Route path="/" element={<Home />} />
+         {/* <Route path="/templates/pet-grooming" element={<Home />} /> */}
         {/* <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} /> */}
       </Routes>

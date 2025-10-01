@@ -45,7 +45,7 @@ export default function Testimonials({
   }, [index, autoPlay, interval]);
 
   return (
-    <section id="testimonials" className="pg-testimonials" aria-labelledby="tst-title">
+    <section id="grooming-testimonials" className="pg-testimonials" aria-labelledby="tst-title">
       <div className="pg-testimonials__head">
         <p className="eyebrow">testimonials</p>
         <h2 id="tst-title" className="title">Don’t just our word for it</h2>

@@ -11,18 +11,18 @@ export default function Footer() {
           <div className="pg-foot-col">
             <h4>Main pages</h4>
             <ul className="pg-links">
-              <li><Link to="/pet-grooming/#hero">Home</Link></li>
-              <li><a href="/pet-grooming/#about">About</a></li>
-              <li><a href="/pet-grooming/#our-story">Our Story</a></li>
-              <li><a href="/pet-grooming/#services">Services</a></li>
+              <li><Link to="/#our-banner">Home</Link></li>
+              <li><a href="/templates/pet-grooming/#grooming-about">About</a></li>
+              <li><a href="/templates/pet-grooming/#grooming-our-story">Our Story</a></li>
+              <li><a href="/templates/pet-grooming/#grooming-services">Services</a></li>
             </ul>
           </div>
 
           <div className="pg-foot-col">
             <h4>Other</h4>
             <ul className="pg-links">
-              <li><a href="/pet-grooming/#testimonials">Testimonials</a></li>
-              <li><Link to="/pet-grooming/#price-section">Pricing</Link></li>
+              <li><a href="/templates/pet-grooming/#grooming-testimonials">Testimonials</a></li>
+                <li><a href="/templates/pet-grooming/#grooming-price">Pricing</a></li>
             </ul>
           </div>
 
@@ -80,7 +80,7 @@ export default function Footer() {
               </a>
             </div>
 
-            <Link to="/buy" className="pg-btn">Buy template</Link>
+            <Link to="/" className="pg-btn">Buy template</Link>
           </aside>
         </div>
 

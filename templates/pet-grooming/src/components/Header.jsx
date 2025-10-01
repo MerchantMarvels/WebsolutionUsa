@@ -28,10 +28,11 @@ export default function Header() {
           aria-label="Primary"
           id="primary-navigation"
         >
-          <NavLink to="/pet-grooming/" end onClick={() => setOpen(false)}>Home</NavLink>
-          <a href="/pet-grooming/#about" onClick={() => setOpen(false)}>About</a>
-          <a href="/pet-grooming/#services" onClick={() => setOpen(false)}>services</a>
-          <Link to="/pet-grooming/#price-section" onClick={() => setOpen(false)}>pricing</Link>
+          <NavLink to="/#our-banner" end onClick={() => setOpen(false)}>Home</NavLink>
+          <a href="/templates/pet-grooming/#grooming-about" onClick={() => setOpen(false)}>About</a>
+          <a href="/templates/pet-grooming/#grooming-services" onClick={() => setOpen(false)}>services</a>
+           <a href="/templates/pet-grooming/#grooming-price" onClick={() => setOpen(false)}>pricing</a>
+           
         </nav>
 
         {/* CENTER: brand */}
@@ -43,7 +44,7 @@ export default function Header() {
         {/* RIGHT: actions (Cart stays on mobile; CTA hides) */}
         <div className="pg-actions">
           {/* <Link to="/cart" className="pg-cart">Cart <span>(0)</span></Link> */}
-          <Link to="/buy" className="pg-cta">Buy template</Link>
+          <Link to="/" className="pg-cta">Buy template</Link>
         </div>
       </div>
     </header>

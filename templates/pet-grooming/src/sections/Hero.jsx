@@ -4,7 +4,7 @@ import "../styles/hero.css";
 
 export default function Hero() {
   return (
-    <section id="hero" className="pg-hero" aria-labelledby="hero-title">
+    <section id="our-banner" className="pg-hero" aria-labelledby="hero-title">
       <div className="pg-hero__wrap">
         {/* LEFT — copy */}
         <div className="pg-hero__copy">
@@ -19,7 +19,7 @@ export default function Hero() {
           </p>
 
           <div className="pg-hero__cta">
-            <Link to="/booking" className="pg-btn">Book appointment</Link>
+            <Link to="/" className="pg-btn">Book appointment</Link>
           </div>
         </div>
 
