@@ -1,0 +1,151 @@
+:root{
+  --price-maxw: 1360px;
+  --gap: clamp(18px, 2.6vw, 28px);
+  --muted: #7a7a7a;
+  --ring: rgba(0,0,0,.06);
+}
+
+/* Section shell */
+.price{
+  max-width: var(--price-maxw);
+  margin: 72px auto 96px;
+  padding: 70px 20px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:#0b0b0c;
+}
+
+/* Header */
+.price-head{
+  display:grid;
+  grid-template-columns: 1fr minmax(260px, 420px);
+  align-items:start;
+  gap: var(--gap);
+  margin-bottom: 18px;
+}
+.price-badge{
+  display:inline-block;
+  background-image: linear-gradient(87deg, #f5ffaf 6%, #f4f4f4 52%, #fff0d1);
+
+  border-radius:999px;
+  padding:8px 14px;
+  font-weight:700; font-size:14px;
+}
+.price-title{
+  margin:12px 0 0;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.15;
+}
+.price-title .muted{ color:#9b9b9b; }
+.price-intro{ color:var(--muted); line-height:1.7; }
+
+/* Toggle */
+.price-toggle{
+  display:flex; gap:10px; align-items:center; justify-content:center;
+  margin: 18px 0 20px;
+}
+.tg-btn{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:999px;
+  padding:8px 14px;
+  font-weight:700; font-size:14px;
+  color:#444;
+}
+.tg-btn.is-active{ background:#0b0b0c; color:#fff; border-color:#0b0b0c; }
+.tg-switch{
+  width:28px; height:16px; border-radius:999px; background:#111; display:inline-block;
+  position: relative;
+}
+.tg-switch::after{
+  content:""; position:absolute; width:12px; height:12px; border-radius:50%;
+  background:#fff; top:2px; left:2px;
+}
+
+/* Cards grid */
+.price-grid{
+  background:#f8f8fb;
+  border-radius:16px;
+  padding: clamp(16px, 3.6vw, 60px) 20px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 0 0 1px var(--ring) inset;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: var(--gap);
+}
+
+/* Card */
+.card{
+  --card-bg: #fff;
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: clamp(16px, 2.2vw, 22px);
+  box-shadow: 0 1px 0 rgba(0,0,0,.04) inset, 0 0 0 1px rgba(0,0,0,.03) inset;
+  display:flex;
+  flex-direction:column;
+}
+.card--popular{
+  background:#e7dcff;
+  box-shadow:
+    0 10px 30px rgba(77, 0, 255, .08),
+    0 0 0 1px rgba(0,0,0,.04) inset;
+  outline: 2px solid rgba(90, 22, 255, .18);
+}
+
+.card-top{ position: relative; }
+.card-icn{ font-size:18px; }
+.card-kicker{
+  position:absolute; right:0; top:0;
+  font-size:12px; font-weight:700; color:#6f6f6f;
+}
+.card-pop{
+  position:absolute; right:0; top:-28px;
+  transform: translateY(-100%);
+  background:#000; color:#fff; font-size:12px; font-weight:800;
+  padding:6px 10px; border-radius: 999px;
+}
+.card-title{ margin: 10px 0 6px; font-size: 18px; }
+.card-blurb{ color:var(--muted); font-size:14.5px; line-height:1.6; }
+
+/* price row */
+.card-price{ display:flex; align-items:baseline; gap:10px; margin: 16px 0 8px; }
+.amount{ font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
+.per{ color:#6d6d6d; font-size: 14px; }
+
+/* divider */
+.card-divider{
+  height:1px; background:#e9e9ee; margin: 10px 0 8px;
+}
+
+/* features */
+.card-subhead{ font-weight:800; font-size:13px; margin-bottom:8px; }
+.card-list{ list-style:none; margin:0; padding:0; display:grid; gap:10px; margin-bottom: 40px; }
+.card-list li{ display:flex; align-items:center; gap:10px; color:#222; }
+.card-list svg{ flex: 0 0 auto; color:#111; }
+
+/* CTA */
+.price .cta{
+  margin-top:auto;
+  border-radius: 999px;
+  padding: 14px 16px;
+  background:#fff;
+  border:1px solid #e7e7ea;
+  font-weight:800;
+  color: black;
+}
+.price .cta:hover{ border-color:#bbb; }
+.price .cta--solid{
+  background:#0b0b0c;
+  color:#fff;
+  border-color:#0b0b0c;
+}
+.price .cta--solid:hover{ filter: contrast(1.1); }
+
+/* Responsive */
+@media (max-width: 1024px){
+  .price-head{ grid-template-columns: 1fr; }
+  .price-intro{ max-width: 60ch; }
+  .price-grid{ grid-template-columns: 1fr 1fr; }
+  .card-pop{ top: 0; transform:none; position: absolute; right: 8px; top: 8px; }
+}
+@media (max-width: 640px){
+  .price-grid{ grid-template-columns: 1fr; }
+}

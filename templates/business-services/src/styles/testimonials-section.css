@@ -1,0 +1,106 @@
+:root{
+  --tst-maxw: 1360px;
+  --tst-gap: clamp(18px, 2.8vw, 28px);
+  --tst-muted:#7a7a7a;
+  --tst-card:#f7f7f9;
+  --tst-ghost:#f7f7f9;
+}
+
+.tst{
+  max-width: var(--tst-maxw);
+  margin: 70px auto 96px;
+  padding: 100px 20px 70px;
+  color:#0b0b0c;
+}
+
+/* header */
+.tst-header{
+  text-align:center;
+  margin-bottom: 22px;
+}
+.tst-badge{
+  display:inline-block;
+  background-image: linear-gradient(87deg, #f5ffaf 6%, #f4f4f4 52%, #fff0d1);
+  border-radius:999px;
+  padding:8px 14px;
+  font-weight:700;
+  font-size:14px;
+}
+.tst-title{
+  margin:14px 0 0;
+  font-size: clamp(26px, 4.8vw, 36px);
+  line-height:1.2;
+}
+.tst-dim{ color:#9b9b9b; }
+
+/* 2–1–2 grid */
+.tst-grid{
+  display:grid;
+  grid-template-columns: 1fr minmax(300px, 1.05fr) 1fr;
+  gap: var(--tst-gap);
+  align-items: start;
+}
+/* core container + header — same as before ... */
+
+/* grid stays 3 columns; middle is fixed, sides scroll */
+.tst-grid{
+  display:grid;
+  grid-template-columns: 1fr minmax(300px, 1.05fr) 1fr;
+  gap: clamp(18px, 2.8vw, 28px);
+  align-items: start;
+}
+
+/* vertical carousel wrappers */
+.carousel-vert{
+  position: relative;
+  overflow: hidden;
+  max-height: 540px;           /* tune height */
+}
+.carousel-vert:hover { cursor: default; } /* we pause in JS on hover */
+
+.tst-track{
+  display: grid;
+  gap: clamp(18px, 2.8vw, 28px);
+  will-change: transform;
+}
+
+/* cards (same as before) */
+.tst-card{
+  background:#fff;
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.04) inset;
+  padding: 18px;
+}
+.tst-card-head{ display:flex; align-items:center; gap:12px; }
+.tst-avatar{ width:44px; height:44px; border-radius:50%; object-fit:cover; }
+.tst-name{ font-weight:700; }
+.tst-role{ color:#7a7a7a; font-size:13.5px; }
+.tst-sep{ height:1px; background:#ececec; margin: 12px 0; }
+.tst-quote{ margin:0; color:#0b0b0c; line-height:1.7; font-size:15.5px; }
+
+/* ghost (optional) */
+.tst-ghost{ padding: 18px; border-radius: 14px; background:#f7f7f9; color:#bdbdbd; opacity:.5; min-height: 80px; }
+
+/* featured (unchanged) */
+.tst-featured{
+  background:#fff; border-radius:18px; padding: clamp(16px, 2vw, 20px);
+  box-shadow: 0 6px 26px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.03) inset;
+  display:grid; grid-template-rows:auto auto auto auto; gap:12px;
+}
+.tst-featured-top{ display:flex; justify-content:flex-end; }
+.tst-chip{ background:#eadfff; border-radius:8px; padding:6px 10px; font-size:12px; font-weight:700; }
+.tst-featured-img{ width:100%; border-radius:12px; object-fit:cover; }
+.tst-featured-quote{ margin:0; font-size:16px; line-height:1.8; padding:6px 2px 2px; }
+.tst-stats{ display:flex; gap:28px; padding-top:8px; }
+.tst-stat-value{ font-weight:800; font-size:28px; }
+.tst-stat-label{ color:#7a7a7a; font-size:12.5px; }
+
+/* responsive */
+@media (max-width: 1024px){
+  .tst-grid{ grid-template-columns: 1fr; }
+  .tst-featured{ order: -1; }      /* featured on top */
+  .carousel-vert{ max-height: 420px; }
+}
+@media (max-width: 640px){
+  .carousel-vert{ max-height: 360px; }
+}

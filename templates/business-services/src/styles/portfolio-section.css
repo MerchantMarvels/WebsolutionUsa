@@ -1,0 +1,261 @@
+:root {
+    --port-maxw: 1360px;
+    --gap: clamp(30px, 8vw, 80px);
+}
+
+.portfolio {
+    max-width: var(--port-maxw);
+    margin: 70px auto;
+    padding: 100px 20px 70px;
+    font-family: 'Inter Tight', sans-serif;
+    color: #0b0b0c;
+}
+
+.portfolio-header {
+    display: grid;
+    grid-template-columns: 1fr minmax(260px, 420px);
+    gap: var(--gap);
+    align-items: start;
+    margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff1c6;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.badge-dot {
+    width: 10px;
+    height: 10px;
+    fill: #0bd11a;
+}
+
+.title {
+    font-size: clamp(28px, 5vw, 56px);
+    line-height: 1.1;
+    margin: 14px 0 0;
+}
+
+.title-dim {
+    color: #9b9b9b;
+}
+
+.intro {
+    color: #7a7a7a;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* projects */
+.project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+}
+
+/* .project:first-child {
+  border-top: 1px solid black;
+} */
+
+.project {
+    border-top: 1px solid black;
+}
+
+.project-info {
+    display: flex;
+    gap: 18px;
+}
+
+.project-id {
+    font-weight: 600;
+    color: #7a7a7a;
+}
+
+.project-meta {
+    flex: 1;
+}
+
+.project-title {
+    font-size: 22px;
+    margin: 0 0 8px;
+}
+
+.project-desc {
+    color: #7a7a7a;
+    margin: 0 0 16px;
+    width: 75%;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #0b0b0c;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* right side gallery */
+.project-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+}
+
+.tags {
+    display: flex;
+    gap: 16px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.images {
+    display: flex;
+    gap: 12px;
+}
+
+.images img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.images img:nth-child(1),
+.images img:nth-child(2),
+.images img:nth-child(3) {
+    max-width: 30%;
+}
+
+.year {
+    font-size: 14px;
+    color: #555;
+    align-self: flex-end;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .portfolio-header {
+        grid-template-columns: 1fr;
+    }
+
+    .project {
+        grid-template-columns: 1fr;
+    }
+
+    .images img {
+        max-width: 100%;
+    }
+}
+
+
+.project-large-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #e6d6f7;
+    /* Light purple background */
+    padding: 70px 20px;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+    margin: 0px -75px;
+}
+
+.project-link-arrow-block {
+    margin-right: 10px;
+}
+
+.project-link-arrow-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.project-link-arrow {
+    width: 36px;
+    height: 36px;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.project-link-text-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-link-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+    font-family: "Inter Tight", sans-serif;
+}
+
+.project-large-link:hover {
+    background-color: #c5a9e1;
+    /* Darker purple on hover */
+}
+
+.project-large-link:hover .project-link-arrow-group {
+    transform: translateX(5px);
+    /* Animation effect */
+}
+
+.project-large-link:hover .project-link-arrow {
+    transform: translateX(5px);
+    /* Arrow move effect */
+}
+
+.project-link-arrow:hover {
+    transform: translateX(5px);
+    /* Arrow move effect */
+}
+
+
+/* === sticky stack === */
+.stack {
+  /* will be set from JS to match header height */
+  --stick: 120px;
+  position: sticky;
+}
+
+/* each article sticks to the top offset and gets pushed by the next one */
+.stack .stack-item {
+  position: sticky;
+  top: var(--stick);
+  background: #fff;            /* ensures clean overlay */
+  will-change: transform, opacity;
+  /* OPTIONAL: visual hint that the next card is taking over */
+  opacity: calc(1 - var(--p, 0) * 0.85);
+  transform: translateY(calc(var(--p, 0) * -6px));
+}
+
+/* make sure stacked items actually overlay cleanly */
+.stack .stack-item + .stack-item {
+  border-top-color: transparent; /* avoid a double border line during overlap */
+}
+
+/* mobile: turn sticky off, back to normal flow */
+@media (max-width: 900px) {
+  .stack .stack-item {
+    position: static;
+    top: auto;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
