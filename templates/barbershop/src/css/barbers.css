@@ -1,0 +1,107 @@
+/* ---------- team / barbers ---------- */
+.team{
+  background: var(--accent);
+  padding: clamp(48px, 7vw, 90px) 16px;
+  color: #171616; /* dark text on amber */
+}
+.team__inner{
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.team__header{
+  text-align: center;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+.team__header h2{
+  margin: 0 0 6px;
+  font-size: clamp(28px, 5vw, 48px);
+  letter-spacing: .4px;
+}
+.team__header p{
+  margin: 0;
+  color: rgba(0,0,0,.7);
+}
+
+/* grid */
+.team__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 2vw, 24px);
+}
+
+/* card */
+.team-card{
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #2b2d31;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,.12);
+}
+.team-card__photo{
+  aspect-ratio: 13 / 10;
+  overflow: hidden;
+  background: #222;
+}
+.team-card__photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.team-card__meta{
+  padding: 18px;
+  background: linear-gradient(180deg, #2b2d31, #24262b);
+  color: var(--text);
+  text-align: center;
+  border-top: 1px solid #31343c;
+}
+.team-card__meta h3{
+  margin: 6px 0 6px;
+  font-size: clamp(16px, 2.1vw, 20px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.team-card__meta .role{
+  display: block;
+  color: var(--accent);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* socials */
+.socials{
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  display: inline-flex;
+  gap: 14px;
+}
+.socials a{
+  display: inline-flex;
+  width: 21px;
+  height: 21px;
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  color: #d7d9de;
+  background: rgba(255,255,255,.06);
+  border: 1px solid #373a41;
+  transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.socials a:hover{
+  transform: translateY(-2px);
+  background: rgba(245,161,10,.14);
+  color: var(--accent);
+  border-color: rgba(245,161,10,.5);
+}
+
+/* responsive */
+@media (max-width: 1024px){
+  .team__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px){
+  .team{ padding: 40px 12px; }
+  .team__grid{ grid-template-columns: 1fr; }
+}

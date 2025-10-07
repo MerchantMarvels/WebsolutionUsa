@@ -1,0 +1,154 @@
+/* ---------- contact / get in touch ---------- */
+.contact {
+    background: #262626;
+    color: var(--text);
+    padding: clamp(48px, 7vw, 96px) 20px;
+}
+
+.contact-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: clamp(22px, 4vw, 32px);
+}
+
+.contact-header h2 {
+    margin: 0 0 6px;
+    font-size: clamp(28px, 5vw, 44px);
+}
+
+.contact-header p {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* layout */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: clamp(16px, 2.2vw, 26px);
+    align-items: start;
+}
+
+/* panels */
+.contact-form,
+.info-card,
+.map-card {
+    background: #171717;
+    border: 1px solid #2b2d33;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contact-form {
+    padding: 25px;
+    height: -webkit-fill-available;
+}
+
+.info-card {
+    padding: 25px;
+}
+
+/* labels reuse .field but add label style */
+.form-label {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+/* textarea style */
+textarea {
+    width: 100%;
+    background: #24262b;
+    color: var(--text);
+    border: 1px solid #33363d;
+    border-radius: 10px;
+    padding: 12px 14px;
+    outline: none;
+    resize: vertical;
+}
+
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(245, 161, 10, .2);
+}
+
+/* info list */
+.info-card h3 {
+    margin: 4px 2px 12px;
+    font-size: 20px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 22px;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.info-ico {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    background: rgba(245, 161, 10, .08);
+    border: 1px solid rgba(245, 161, 10, .35);
+}
+
+.info-title {
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.info-text {
+    color: #c9cdd4;
+}
+
+/* map */
+.map-card {
+    overflow: hidden;
+    margin-top: 16px;
+    height: 300px;
+}
+
+.map-card iframe {
+    border: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* responsive */
+@media (max-width: 1000px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-card {
+        height: 260px;
+    }
+}
+
+@media (max-width: 560px) {
+    .contact {
+        padding: 40px 20px;
+    }
+
+    .map-card {
+        height: 220px;
+    }
+}
