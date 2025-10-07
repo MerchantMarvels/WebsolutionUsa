@@ -1,0 +1,107 @@
+
+.gallery {
+  background: #fff;
+  padding: clamp(2.5rem, 6vw, 5rem) 1rem;
+}
+.gallery__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gallery__title {
+  font-family: "Cormorant Garamond", serif;
+  color: #7a1430;
+  font-size: clamp(2rem, 3.2vw + 1rem, 3rem);
+  margin: 0;
+}
+.gallery__underline {
+  width: 90px;
+  height: 6px;
+  background: #ff8aa1;
+  border-radius: 4px;
+  margin: .6rem auto 1rem;
+}
+.gallery__sub {
+  color: #666;
+  margin: 0 auto 2rem;
+  max-width: 640px;
+}
+
+/* Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 22px);
+}
+@media (max-width: 900px) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
+/* Items */
+.gallery-item {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  aspect-ratio: 1 / 1;   /* square tiles; change to 4/3 if you prefer */
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease, filter .35s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.04);
+  filter: saturate(1.05);
+}
+
+/* Fade-up */
+.fade-up { opacity: 0; transform: translateY(14px); }
+.fade-up-in { animation: fadeUp .6s ease-out forwards; }
+.fade-up-in-delay1 { animation: fadeUp .6s ease-out .08s forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+.lightbox__content {
+  position: relative;
+  margin: 0;
+  max-width: min(92vw, 1100px);
+  max-height: 88vh;
+}
+.lightbox__content img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #000;
+}
+.lightbox__close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: 0;
+  background: rgba(255,255,255,.9);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+}

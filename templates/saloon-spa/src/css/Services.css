@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap');
+
+/* Section */
+.services-section {
+    text-align: center;
+    padding: clamp(3rem, 5vw, 6rem) 1rem;
+    background: #fff;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.services-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #7a002c;
+    margin-bottom: 0.4rem;
+}
+
+.services-subtext {
+    color: #555;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+}
+
+/* Grid layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+/* Card */
+.service-card {
+    background: linear-gradient(135deg, #fff8fa 0%, #ffeef2 100%);
+    border-radius: 16px;
+    padding: 40px 20px;
+    max-width: 360px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+    transition: transform .25s ease, box-shadow .25s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon and Price */
+.service-icon {
+    font-size: 0.8rem;
+    background: #fff;
+    padding: 0.6rem;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(255, 105, 135, 0.2);
+}
+.service-icon img {
+    width: 100%;
+}
+
+.service-price {
+    position: absolute;
+    top: 2.2rem;
+    right: 40px;
+    font-weight: 400;
+    color: #800028;
+    font-size: 26px;
+    text-align: right;
+}
+
+.service-price span {
+    font-size: 12px;
+    display: block;
+    color: #a05;
+    font-weight: 100;
+    margin-bottom: 5px;
+}
+
+/* Text content */
+.service-title {
+    font-family: "Cormorant Garamond", serif;
+    color: #7a002c;
+    font-size: 1.25rem;
+    margin: 0.4rem 0;
+}
+
+.service-desc {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.service-duration {
+    font-weight: 600;
+    color: #d61e5b;
+    font-size: 0.9rem;
+}
+
+/* Fade animation */
+.fade-up {
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+.fade-up-in {
+    animation: fadeUp .6s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .services-grid {
+        gap: 1.2rem;
+    }
+
+    .service-card {
+        max-width: 100%;
+    }
+}

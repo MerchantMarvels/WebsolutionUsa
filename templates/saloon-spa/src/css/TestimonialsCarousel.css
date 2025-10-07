@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap');
+
+.testi {
+  background: linear-gradient(#fff7f9, #fff5f7);
+  padding: clamp(2.5rem, 6vw, 5rem) 1rem;
+}
+.testi__inner { max-width: 1150px; margin: 0 auto; text-align: center; }
+.testi__title {
+  font-family: "Cormorant Garamond", serif;
+  color: #7a1430;
+  font-size: clamp(2rem, 3.2vw + 1rem, 3rem);
+  margin: 0;
+}
+.testi__underline {
+  width: 90px; height: 6px; border-radius: 4px;
+  background: #ff8aa1; margin: .6rem auto 1rem;
+}
+.testi__sub { color: #6b6b6b; margin: 0 auto 1.6rem; max-width: 700px; }
+
+/* slick spacing so only requested count is visible */
+.slick-wrapper .slick-slide > div { padding: 0 10px; margin:20px 30px;     height: -webkit-fill-available; }
+.slick-wrapper .slick-list { margin: 0 -10px; }
+
+/* Card */
+.card {
+  padding: 1.4rem 1.25rem;
+  background: #fff; border-radius: 18px;
+  /* box-shadow: 0 8px 28px rgba(0,0,0,.06); */
+  text-align: left;
+  height: -webkit-fill-available;
+}
+.card__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: .6rem; }
+.stars { color: #ff5b82; letter-spacing: 2px; font-size: 1rem; }
+.quote { color: #ff8aa1; font-size: 1.4rem; opacity: .8; }
+.card__text { color: #444; line-height: 1.6; margin: 0 0 .9rem; }
+.card__rule { border: 0; height: 1px; background: #f0d6dd; margin: .2rem 0 .8rem; }
+.name { font-weight: 700; color: #9c0935; }
+.service { color: #ff5b82; font-size: .9rem; }
+
+/* Arrows */
+.nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  border: 0; background: rgba(255,255,255,.95);
+  width: 36px; height: 36px; border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  cursor: pointer; font-size: 22px; line-height: 1; z-index: 2;
+}
+.nav:hover { background: #fff; }
+.prev { left: -54px; }
+.next { right: -56px; }
+
+/* Dots */
+.slick-dots li button:before { color: #e6b6c2; opacity: 1; }
+.slick-dots li.slick-active button:before { color: #ff5b82; }
+
+.slick-slider .slick-track, .slick-slider .slick-list {
+    height: 270px;
+}
+@media (max-width: 640px) {
+  .prev { left: 2px; }
+  .next { right: 2px; }
+  .slick-wrapper .slick-list {
+    margin: 0 -10px;
+    margin-left: -30px;
+    margin-right: 10px;
+}
+}
