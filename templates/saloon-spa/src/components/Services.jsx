@@ -69,7 +69,7 @@ const ServiceCard = ({ icon, title, desc, price, duration }) => {
     <div ref={ref} className={`service-card ${visible ? "fade-up-in" : "fade-up"}`}>
       <div className="service-icon"><img src={icon} alt='' /></div>
       <div className="service-price">
-        <span>From</span> ₹{price}
+        <span>From</span> ${price}
       </div>
       <h3 className="service-title">{title}</h3>
       <p className="service-desc">{desc}</p>
