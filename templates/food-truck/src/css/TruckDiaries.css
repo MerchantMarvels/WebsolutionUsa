@@ -1,0 +1,103 @@
+/* Section shell */
+.td-section {
+  /* background: #f8fafc;          very light gray/blue like screenshot */
+  padding: 72px 20px 96px;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  text-align: center;
+}
+
+.td-header { margin-bottom: 36px; }
+
+.td-chip {
+  display: inline-block;
+  background: #fee9c7;
+  color: #b45309;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .02em;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.td-title {
+  margin: 10px 0 6px;
+  font-size: clamp(28px, 4.5vw, 44px);
+  line-height: 1.1;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.td-sub {
+  color: #64748b;
+  font-size: 15px;
+}
+
+/* Grid layout */
+.td-grid {
+  margin: 24px auto 0;
+  width: min(1100px, 100%);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 2fr 1fr 1fr; /* left wide */
+  grid-template-rows: auto;
+  grid-template-areas:
+    "a b c"
+    "a d e"
+    "f g h";
+  align-items: stretch;
+}
+
+/* areas map to screenshot */
+.img-a { grid-area: a; }
+.img-b { grid-area: b; }
+.img-c { grid-area: c; }
+.img-d { grid-area: d; }
+.img-e { grid-area: e; }
+.img-f { grid-area: f; }
+.img-g { grid-area: g; }
+.img-h { grid-area: h; }
+
+/* media & look */
+.td-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+  display: block;
+}
+
+/* Make some rows shorter/taller to resemble the collage */
+.img-b, .img-c, .img-d, .img-e { height: 220px; }
+.img-g { height: 300px; }
+.img-f, .img-h { height: 300px; }
+
+/* Responsive stacks */
+@media (max-width: 992px) {
+  .td-grid {
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-areas:
+      "a a"
+      "b c"
+      "d e"
+      "f g"
+      "h h";
+  }
+  .img-b, .img-c, .img-d, .img-e, .img-f, .img-g, .img-h { height: 220px; }
+}
+
+@media (max-width: 640px) {
+  .td-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "a"
+      "b"
+      "c"
+      "d"
+      "e"
+      "f"
+      "g"
+      "h";
+  }
+  .td-img { height: 260px; }
+}

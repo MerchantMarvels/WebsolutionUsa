@@ -1,0 +1,130 @@
+/* --- Layout --- */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: white;
+  /* deep rosy */
+  background-image: url("../assets/banner-bg.jpg");
+  /* replace with your image path */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: #00000099;
+  /* soft blush */
+  backdrop-filter: blur(1px);
+}
+
+.hero__content {
+  position: relative;
+  max-width: 1100px;
+  padding: 0 1.25rem;
+}
+
+/* --- Typography --- */
+.hero__title {
+ font-size: clamp(2rem, 3vw + 1rem, 4rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin: 0 0 1rem;
+  transition: transform 1s ease, box-shadow 1s ease;
+}
+
+.hero__subtitle {
+  max-width: 720px;
+  margin: 0 auto 1.5rem;
+  font-size: clamp(1rem, 0.6vw + 0.9rem, 1.25rem);
+  color: white;
+  transition: transform 1s ease, box-shadow 1s ease;
+}
+
+/* --- CTA --- */
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.2rem;
+  margin-right: 20px;
+  padding: 0.85rem 1.4rem;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 400;
+  cursor: pointer;
+  background: #2E7D32;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(255, 120, 140, 0.35);
+  transition: transform 1s ease, box-shadow 1s ease;
+  font-family: "Poppins", sans-serif;
+}
+.hero__cta2{
+  background: #fff;
+  color: #2E7D32;
+}
+
+.hero__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(255, 120, 140, 0.45);
+}
+
+
+
+/* --- Fade-up animation utils --- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.fade-up-in {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.fade-up-in-delay1 {
+  animation: fadeUp 1s ease-out 2s forwards;
+}
+
+.fade-up-in-delay2 {
+  animation: fadeUp 1s ease-out 2.4s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 900px) {
+  .hero__stats {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    text-align: center;
+    min-height: 50vh;
+  }
+
+  .hero__stats {
+    /* grid-template-columns: 1fr; */
+    gap: 1rem;
+    max-width: 420px;
+  }
+
+  .br-md {
+    display: none;
+  }
+  .stat-label {
+    font-size: 0.6rem;
+  }
+
+  /* remove manual line-break on small screens */
+}

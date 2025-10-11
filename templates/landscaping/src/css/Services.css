@@ -1,0 +1,109 @@
+/* Section shell */
+.services {
+    --green: #2E7D32;
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --card-bg: #f6f7f8;
+    --ring: rgba(46, 125, 50, 0.15);
+
+    padding: clamp(2.5rem, 4vw, 5rem) 1.25rem;
+    background: #fff;
+}
+
+.services__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.services__head {
+    text-align: center;
+    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.services__head h2 {
+    font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
+    line-height: 1.05;
+    color: #111827;
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+}
+
+.services__head p {
+    margin: 0 auto;
+    max-width: 720px;
+    color: var(--muted);
+    font-size: clamp(0.98rem, 0.6vw + 0.8rem, 1.125rem);
+}
+
+/* Grid */
+.services__grid {
+    --min: 260px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
+    gap: clamp(1rem, 2.2vw, 1.5rem);
+}
+
+/* Card */
+.service-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    box-shadow: 0 2px 12px rgba(17, 24, 39, 0.04);
+    border: 1px solid #eceff1;
+    transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+.service-card:hover,
+.service-card:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(17, 24, 39, 0.10);
+    background: #ffffff;
+    outline: none;
+}
+
+/* Icon */
+.service-card__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--green);
+    color: #fff;
+    box-shadow: 0 6px 18px var(--ring);
+    margin-bottom: 26px;
+}
+
+.service-card__icon img {
+    width: 26px;
+    height: 26px;
+}
+
+/* Text */
+.service-card__title {
+    font-size: clamp(1.05rem, 0.7vw + 0.9rem, 1.35rem);
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 0 0.4rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.service-card__desc {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+}
+
+/* Motion-respect */
+@media (prefers-reduced-motion: reduce) {
+    .service-card {
+        transition: none;
+    }
+}
