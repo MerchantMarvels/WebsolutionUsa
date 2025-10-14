@@ -1,12 +1,25 @@
 // app.js
+
+const mysql = require('mysql2/promise');
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+
 
 dotenv.config();
 
 const app = express();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
+const db = mysql.createPool({
+  host: "147.93.116.124",
+  user: "websolutionusa_leads",
+  password: "Business@2025",
+  database: "websolutionusa_leads",
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
 
 // CORS for your frontend
 app.use(
@@ -17,6 +30,22 @@ app.use(
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
+
+// ✅ one-time startup test (promise API)
+(async () => {
+  let connection;
+  try {
+    connection = await db.getConnection();
+    await connection.ping();
+    console.log("✅ Database connected successfully!");
+  } catch (err) {
+    console.error("❌ Database connection failed:");
+    console.error(err?.message || err);
+  } finally {
+    if (connection) connection.release();
+  }
+})();
+  
 
 // Webhook BEFORE express.json() to preserve raw body (important if you enable signature verification)
 app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
@@ -106,6 +135,30 @@ app.post('/api/create-checkout-session', async (req, res) => {
 // Simple test route
 app.get('/api/test', (req, res) => {
   res.json({ message: 'Hello from backend!' });
+});
+
+
+
+// ✅ POST route to create a lead
+app.post("/api/create", async (req, res) => {
+  const { name, email, phone, source } = req.body;
+
+  // Basic validation
+  if (!name || !email || !phone) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  try {
+    const [result] = await db.query(
+      "INSERT INTO leads (name, email, phone, source) VALUES (?, ?, ?, ?)",
+      [name, email, phone, source || null]
+    );
+
+    res.status(201).json({ message: "Lead created successfully", id: result.insertId });
+  } catch (err) {
+    console.error("Database error:", err);
+    res.status(500).json({ error: "Failed to save lead" });
+  }
 });
 
 const PORT = process.env.PORT || 5000;
